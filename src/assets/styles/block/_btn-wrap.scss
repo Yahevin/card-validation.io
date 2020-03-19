@@ -1,0 +1,16 @@
+.btn-wrap {
+  &__title {
+
+  }
+  &__row {
+    display: flex;
+  }
+  &__mail {
+    margin: 0 16px 0 0;
+    flex: 1 1 1px;
+  }
+  &__submit {
+    height: 62px;
+    flex: 0 0 145px;
+  }
+}

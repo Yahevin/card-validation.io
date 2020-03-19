@@ -1,0 +1,50 @@
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $light-green;
+  border-radius: 6px;
+
+
+  &:disabled {
+    background-color: $light-grey;
+  }
+  &:hover {
+    background-color: $salad;
+  }
+  &:active, &--load {
+    background-color: $green;
+  }
+
+  &--load {
+    .btn-submit__text {
+      display: none;
+    }
+    .btn-submit__loader {
+      display: block;
+    }
+  }
+
+  &__text {
+    @extend .bold-18;
+    text-align: center;
+    letter-spacing: 0.15px;
+    color: #ffffff;
+  }
+
+  &__loader {
+    @include size(30px);
+    display: none;
+    border-radius: 50%;
+    animation: load 1s linear infinite;
+  }
+}
+
+@keyframes load {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

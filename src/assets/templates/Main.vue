@@ -25,7 +25,7 @@
                         <svg v-svg symbol="mastercard" class="svg"></svg>
                     </div>
                 </div>
-                <section class="payment">
+                <form class="payment">
                     <h1 class="payment__title">
                         Оплата: 404,00 ₽
                     </h1>
@@ -77,10 +77,23 @@
                         </label>
                     </div>
                     
-                    <div class="payment__btn-wrap ">
-                        <h4></h4>
+                    <div class="payment__btn-wrap btn-wrap">
+                        <h4 class="btn-wrap__title">
+                            Отправить чек на Email
+                        </h4>
+                        <div class="btn-wrap__row">
+                            <input-custom
+                                :selector="'btn-wrap__mail'"
+                                :placeholder="'Email'"
+                                :name="'email'">
+                            </input-custom>
+                            <button class="btn-wrap__submit btn-submit">
+                                <span class="btn-submit__text">Оплатить</span>
+                                <svg v-svg symbol="loader" class="btn-submit__loader"></svg>
+                            </button>
+                        </div>
                     </div>
-                </section>
+                </form>
             </article>
             <aside class="content__aside"></aside>
         </div>
@@ -91,12 +104,14 @@
     import {store} from '@/assets/js/store/index';
     import Icon from '@/assets/templates/Icon';
     import PaymentCard from '@/assets/templates/PaymentCard';
-    
+    import InputCustom from '@/assets/templates/InputCustom';
+
     export default {
         name: "Main",
         components: {
             Icon,
-            PaymentCard
+            PaymentCard,
+            InputCustom,
         },
         store,
         data() {
