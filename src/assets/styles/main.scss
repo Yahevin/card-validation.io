@@ -1,3 +1,11 @@
 // Mixins
 @import "mixins/index";
 
+// Blocks
+@import "block/banner/index";
+@import "block/content";
+
+//Elements
+@import "elements/spacer";
+@import "elements/container";
+@import "elements/svg";
