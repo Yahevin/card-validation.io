@@ -2,10 +2,11 @@
 @import "mixins/index";
 
 // Blocks
-@import "block/banner/index";
+@import "block/banner-top";
 @import "block/content";
 
 //Elements
 @import "elements/spacer";
 @import "elements/container";
 @import "elements/svg";
+@import "elements/img";

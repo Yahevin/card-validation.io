@@ -1,0 +1,16 @@
+.img-contain {
+  display: block;
+  &--width {
+    @include size(100%,auto);
+  }
+  &--height {
+    @include size(auto,100%);
+  }
+  object-fit: contain;
+}
+.img-cover {
+  display: block;
+  @include size(100%);
+  object-fit: cover;
+  object-position: center;
+}
