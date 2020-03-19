@@ -1,0 +1,44 @@
+.card-save {
+  display: flex;
+  align-items: center;
+
+  &__wrap {
+    @include size(18px);
+    position: relative;
+    flex: 0 0 18px;
+  }
+  &__input {
+    @include size(0);
+    opacity: 0;
+
+    &:checked {
+      & + .card-save__label {
+        border-width: 0;
+        & .card-save__arrow {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__label {
+    @include size(100%);
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    border-radius: 2px;
+    border: 1px solid $light-grey;
+  }
+  &__arrow {
+    @include size(14px,10px);
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+  }
+  &__text {
+    @extend .bold-16;
+    margin: 0 0 0 15px;
+  }
+}
