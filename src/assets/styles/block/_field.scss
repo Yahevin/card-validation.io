@@ -1,0 +1,48 @@
+.field {
+  height: 60px;
+  padding: 19px 40px 0 16px;
+  position: relative;
+  border: 1px solid $light-grey;
+  border-radius: 6px;
+
+  &__input {
+    @extend .normal-16;
+    letter-spacing: 0.15px;
+
+    &::placeholder {
+      color: $grey;
+    }
+    &:focus, &:not(:empty) {
+      margin: 9px 0 0 0;
+
+      &::placeholder {
+        color: transparent;
+      }
+      & + .field__label {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__label {
+    @include size(100%);
+    @extend .normal-12;
+    padding: 10px 16px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    color: $grey;
+    cursor: text;
+    letter-spacing: 0.4px;
+  }
+
+  &__clear {
+    @include size(16px);
+    position: absolute;
+    right: 16px;
+    top: 22px;
+    color: $grey;
+    cursor: pointer;
+  }
+}
