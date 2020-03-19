@@ -61,6 +61,7 @@
                         </div>
                     </div>
                     
+                    <payment-card></payment-card>
                     
                     <div class="payment__save card-save">
                         <div class="card-save__wrap">
@@ -76,7 +77,9 @@
                         </label>
                     </div>
                     
-                    
+                    <div class="payment__btn-wrap ">
+                        <h4></h4>
+                    </div>
                 </section>
             </article>
             <aside class="content__aside"></aside>
@@ -87,11 +90,13 @@
 <script>
     import {store} from '@/assets/js/store/index';
     import Icon from '@/assets/templates/Icon';
+    import PaymentCard from '@/assets/templates/PaymentCard';
     
     export default {
         name: "Main",
         components: {
             Icon,
+            PaymentCard
         },
         store,
         data() {
