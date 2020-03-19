@@ -2,8 +2,11 @@
 @import "mixins/index";
 
 // Blocks
-@import "block/banner-top";
 @import "block/content";
+@import "block/payment";
+@import "block/order-info";
+@import "block/banner-top";
+@import "block/payment-safe";
 
 //Elements
 @import "elements/spacer";

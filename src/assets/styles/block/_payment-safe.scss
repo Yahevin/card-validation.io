@@ -1,0 +1,12 @@
+.payment-safe {
+  display: flex;
+  &__btn {
+    @include size(22px, 32px);
+    margin: 0 12px 0 0;
+  }
+  &__text {
+    @extend .normal-14;
+    max-width: 100px;
+    color: $grey;
+  }
+}
