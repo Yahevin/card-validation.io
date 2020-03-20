@@ -1,0 +1,39 @@
+.btn-link {
+  flex: 1;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 6px;
+
+  &:not(:first-child) {
+    margin: 0 0 0 16px;
+  }
+
+  &__item {
+    @include size(100%);
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &--google {
+    border: 1px solid #CFD5DA;
+    & .btn-link__icon {
+      @include size(47px, 20.5px);
+    }
+  }
+  &--apple {
+    background-color:#000000;
+    & .btn-link__icon {
+      @include size(46px, 18px);
+    }
+  }
+  &--samsung {
+    background-color:  #034EA2;;
+    & .btn-link__icon {
+      @include size(121px, 17px)
+    }
+  }
+}

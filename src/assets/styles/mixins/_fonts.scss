@@ -1,7 +1,5 @@
 // Fonts
 
-
-
 .h1 {
   font-family: 'OpenSans', sans-serif;
   font-style: normal;
@@ -27,12 +25,10 @@
   line-height: 120%;
 }
 
-
-
 .bold-18 {
   font-family: 'OpenSans', sans-serif;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0.15px;
@@ -40,12 +36,36 @@
 .bold-16 {
   font-family: 'OpenSans', sans-serif;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
   line-height: 120%;
 }
 
 .bold-14 {
+  font-family: 'OpenSans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 120%;
+}
+
+.semi-bold-18 {
+  font-family: 'OpenSans', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+.semi-bold-16 {
+  font-family: 'OpenSans', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 120%;
+}
+
+.semi-bold-14 {
   font-family: 'OpenSans', sans-serif;
   font-style: normal;
   font-weight: 600;

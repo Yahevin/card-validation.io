@@ -93,6 +93,29 @@
                             </button>
                         </div>
                     </div>
+    
+                    <div class="payment__btn-wrap btn-wrap">
+                        <h4 class="btn-wrap__title">
+                            ОДругие способы оплаты
+                        </h4>
+                        <div class="btn-wrap__row">
+                            <div class="btn-link btn-link--google">
+                                <a href="" class="btn-link__item"></a>
+                                <svg v-svg symbol="GPay"
+                                     class="btn-link__icon"></svg>
+                            </div>
+                            <div class="btn-link btn-link--apple">
+                                <a href="" class="btn-link__item"></a>
+                                <svg v-svg symbol="APay"
+                                     class="btn-link__icon"></svg>
+                            </div>
+                            <div class="btn-link btn-link--samsung">
+                                <a href="" class="btn-link__item"></a>
+                                <svg v-svg symbol="SPay"
+                                     class="btn-link__icon"></svg>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </article>
             <aside class="content__aside"></aside>
