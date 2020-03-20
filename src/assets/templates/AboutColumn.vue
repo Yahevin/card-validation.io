@@ -27,7 +27,7 @@
 
 <script>
 	export default {
-		name: "Aside"
+		name: "AboutColumn"
 	}
 </script>
 

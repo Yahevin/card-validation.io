@@ -1,7 +1,7 @@
 <template>
 	
 	<div class="payment__info">
-		<h1 class="payment__title">
+		<h1 class="payment__title payment__title--big-margin">
 			Оплата: 404,00 ₽
 		</h1>
 		
