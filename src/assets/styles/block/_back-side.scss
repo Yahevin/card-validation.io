@@ -1,0 +1,34 @@
+.back-side {
+  padding: 0 24px;
+  &__input {
+    margin: 134px 0 0 0;
+  }
+  &__help {
+    @extend .normal-12;
+    margin: 6px 0 0 0;
+    position: relative;
+    letter-spacing: 0.4px;
+    color: $grey;
+    cursor: pointer;
+
+    &:hover {
+      color: $black;
+      & .back-side__popup {
+        opacity: 1;
+      }
+    }
+  }
+  &__popup {
+    @include size(190px, 71px);
+    padding: 12px;
+    position: absolute;
+    top: -86px;
+    left: -66px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    background: $popup-grey;
+    border-radius: 13px;
+    color: $light-grey;
+    pointer-events: none;
+  }
+}
