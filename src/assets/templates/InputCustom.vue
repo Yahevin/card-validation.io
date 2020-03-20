@@ -3,6 +3,7 @@
         <input class="field__input"
                v-model="input"
                :placeholder="placeholder"
+               :class="filled"
                :type="type"
                :name="name"
                :id="inputId">
@@ -11,7 +12,7 @@
             {{ placeholder }}
         </label>
         <div class="field__clear"
-                @click="input = null">
+                @click="input = ''">
             <svg v-svg symbol="field-clear" class="svg"></svg>
         </div>
     </div>
@@ -41,14 +42,17 @@
         mounted() {
         },
         data() {
-		    return {
-		        input: null,
-            }
+          return {
+            input: '',
+          }
         },
         computed: {
-		    inputId: ()=> {
-                return name + '-id';
-            }
+		      inputId() {
+            return this.name + '-id';
+          },
+          filled() {
+		        return this.input.length > 0 ? 'field__input--filled' : '';
+          }
         }
 	}
 </script>

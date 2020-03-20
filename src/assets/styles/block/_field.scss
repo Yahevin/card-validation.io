@@ -1,24 +1,31 @@
 .field {
   height: 60px;
-  padding: 19px 40px 0 16px;
+  padding: 18px 35px 0 16px;
   position: relative;
-  border: 1px solid $light-grey;
   border-radius: 6px;
+  border: 1px solid $light-grey;
+  background-color: #fff;
 
   &__input {
     @extend .normal-16;
+    width: 100%;
     letter-spacing: 0.15px;
 
     &::placeholder {
       color: $grey;
     }
-    &:focus, &:not(:empty) {
+    &:focus, &--filled {
       margin: 9px 0 0 0;
 
       &::placeholder {
         color: transparent;
       }
-      & + .field__label {
+      & + .field__label  {
+        opacity: 1;
+      }
+    }
+    &--filled {
+      & + .field__label + .field__clear {
         opacity: 1;
       }
     }
@@ -44,5 +51,7 @@
     top: 22px;
     color: $grey;
     cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 }
