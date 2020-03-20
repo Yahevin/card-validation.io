@@ -6,8 +6,9 @@
 
   &__title {
     @extend .h1;
+    margin: 0 0 20px 0 ;
   }
-  &__info, &__card {
+  &__card {
     margin: 20px 0 0 0;
   }
   &__save, &__btn-wrap {
