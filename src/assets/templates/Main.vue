@@ -1,12 +1,12 @@
 <template>
     <main class="container">
-        <img src="@/assets/img/main-banner.png" class="img-contain img-contain--width" alt="main-banner">
+        <img src="@/assets/img/main-banner.png" class="img img--contain" alt="main-banner">
         
         <div class="content">
             <article class="content__main">
                 <div class="banner-top">
                     <div class="banner-top__left">
-                        <img src="@/assets/img/uniteller.png" class="img-contain img-contain--width" alt="uniteller">
+                        <img src="@/assets/img/uniteller.png" class="img img--contain" alt="uniteller">
                     </div>
             
                     <div class="spacer">
@@ -120,10 +120,10 @@
             </article>
             <aside class="content__aside about-column">
                 <div class="about-column__accept">
-                    <img src="@/assets/img/verified/visa.png" class="img-contain img-contain--width" alt="main-banner">
-                    <img src="@/assets/img/verified/mc.png" class="img-contain img-contain--width" alt="main-banner">
-                    <img src="@/assets/img/verified/pci.png" class="img-contain img-contain--width" alt="main-banner">
-                    <img src="@/assets/img/verified/mir.png" class="img-contain img-contain--width" alt="main-banner">
+                    <img src="@/assets/img/verified/visa.png" class="img img--contain" alt="main-banner">
+                    <img src="@/assets/img/verified/mc.png" class="img img--contain" alt="main-banner">
+                    <img src="@/assets/img/verified/pci.png" class="img img--contain" alt="main-banner">
+                    <img src="@/assets/img/verified/mir.png" class="img img--contain" alt="main-banner">
                 </div>
                 <div class="about-column__text">
                     <p>
