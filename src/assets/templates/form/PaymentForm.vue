@@ -1,5 +1,5 @@
 <template>
-	<form class="payment">
+	<form class="payment" ref="form" @submit="formSubmit">
 		<order-info></order-info>
 		
 		<payment-card></payment-card>
@@ -21,12 +21,19 @@
 	
 	export default {
 		name: "PaymentForm",
+		props: ['form'],
 		components: {
 			OrderInfo,
 			CardSave,
 			SubmitPayment,
 			OtherPayment,
 			PaymentCard,
+		},
+		methods: {
+			formSubmit(e){
+				e.preventDefault();
+				this.$emit('submit');
+			}
 		}
 	}
 </script>

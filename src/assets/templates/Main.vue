@@ -5,9 +5,21 @@
         <div class="content">
             <article class="content__main">
                 <banner-top></banner-top>
-                <payment-form></payment-form>
-                <payment-success></payment-success>
-                <payment-error></payment-error>
+                
+                <payment-form
+                    v-show="formFilling"
+                    @submit="formSubmited">
+                </payment-form>
+                
+                <payment-success
+                    v-if="!formFilling && sendSuccess"
+                    :form="this.$refs.form">
+                </payment-success>
+                
+                <payment-error
+                    v-if="!formFilling && !sendSuccess"
+                    :form="this.$refs.form">
+                </payment-error>
             </article>
             <aside class="content__aside">
                 <about-column></about-column>
@@ -37,12 +49,24 @@
         data() {
             return {
                 start: true,
+                sendSuccess: false,
             }
         },
         computed: {
-
+            
+            formFilling() {
+                return this.$store.getters.form_filling;
+            }
         },
         methods: {
+            formSubmited() {
+                this.random();
+
+                this.$store.dispatch('setAction', false);
+            },
+            random() {
+                this.sendSuccess = Math.random() > 0.5;
+            },
         },
     }
 </script>

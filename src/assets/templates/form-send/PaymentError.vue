@@ -19,7 +19,8 @@
 			</p>
 		</div>
 		
-		<div class="payment-send__btn btn-submit">
+		<div @click="retrySend"
+				class="payment-send__btn btn-submit">
 			<span class="btn-submit__text">Повторить</span>
 		</div>
 	</section>
@@ -27,10 +28,13 @@
 
 <script>
 	export default {
-		name: "PaymentError"
+		name: "PaymentError",
+		props: ['form'],
+		methods: {
+			retrySend() {
+				console.log(this);
+				this.form.submit();
+			}
+		}
 	}
 </script>
-
-<style scoped>
-
-</style>

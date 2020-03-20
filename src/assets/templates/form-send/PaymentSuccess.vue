@@ -12,7 +12,8 @@
 			Подробная информация о Вашем платеже отправлена на электронный адрес, указанный во время платежа.
 		</p>
 		
-		<div class="payment-send__btn btn-submit">
+		<div @click="returnToForm"
+				class="payment-send__btn btn-submit">
 			<span class="btn-submit__text">Вернуться в магазин</span>
 		</div>
 		
@@ -39,8 +40,8 @@
 					<svg v-svg symbol="printer" class="svg"></svg>
 				</div>
 				<span class="print-btn__text">
-                                Распечатать
-                            </span>
+            Распечатать
+        </span>
 			</div>
 		</div>
 	
@@ -48,8 +49,16 @@
 </template>
 
 <script>
+	import {store} from '@/assets/js/store/index';
+	
 	export default {
-		name: "PaymentSuccess"
+		name: "PaymentSuccess",
+		store,
+		methods: {
+			returnToForm() {
+				this.$store.dispatch('setAction', true);
+			},
+		}
 	}
 </script>
 
