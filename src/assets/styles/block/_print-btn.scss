@@ -1,0 +1,22 @@
+.print-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  &__icon {
+    @include size(24px);
+  }
+  &__text {
+    @extend .semi-bold-14;
+    margin: 0 0 0 12px;
+    color: $green;
+    text-decoration-line: underline;
+  }
+}
