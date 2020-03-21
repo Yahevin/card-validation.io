@@ -69,8 +69,10 @@
         },
 		methods: {
 			returnToForm() {
+                this.$store.dispatch('rememberCard', false);
                 this.$store.dispatch('setAction', true);
                 this.$store.dispatch('cleanInputs');
+                this.$bus.emit('resetForm');
 			},
             covered(val) {
                 let value = val.toString();

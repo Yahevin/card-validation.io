@@ -1,0 +1,14 @@
+.failed {
+  border-color: $red;
+  &:focus {
+    border-color: $light-grey;
+  }
+}
+
+.field__input {
+  &:focus {
+    & + .failed {
+      border-color: $light-grey;
+    }
+  }
+}

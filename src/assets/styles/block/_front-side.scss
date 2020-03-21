@@ -51,5 +51,15 @@
     .front-side__divider {
       color: #fff;
     }
+    .front-side__number {
+      & .field__clear {
+        right: 65px;
+      }
+    }
+  }
+  &__number {
+    & .field__clear {
+      z-index: 11;
+    }
   }
 }

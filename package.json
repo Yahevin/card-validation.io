@@ -51,6 +51,7 @@
     "style-loader": "^1.0.0",
     "svg-sprite-loader": "^4.2.1",
     "url-loader": "^2.2.0",
+    "vee-validate": "^3.2.5",
     "vue": "^2.6.10",
     "vue-bus": "^1.2.1",
     "vue-loader": "^15.7.2",
@@ -61,6 +62,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
+    "v-mask": "^2.0.2",
     "vue": "^2.6.10",
     "webpack": "^4.41.6",
     "webpack-dev-middleware": "^3.7.2",

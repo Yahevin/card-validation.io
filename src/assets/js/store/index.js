@@ -13,12 +13,7 @@ export const store = new Vuex.Store({
     form_filling: true,
     processed: false,
     pay_system: '',
-    saved_cards: [
-      {
-        number: 1234567890123456789,
-        system: 'mir',
-      }
-    ],
+    saved_cards: [],
     remember_card: false,
   },
   actions: {

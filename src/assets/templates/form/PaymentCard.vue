@@ -6,8 +6,10 @@
                 <div class="card-number__input"
                     @click="showMySaved=true">
                     <input-custom
+                        :rules="'required|min:19|max:24'"
                         :placeholder="'Номер карты'"
-                        :name="'card_number'">
+                        :name="'card_number'"
+                        :mask="'#### #### #### #### ####'">
                     </input-custom>
                 </div>
                 <div class="card-number__system card-number__system--current">
@@ -39,8 +41,10 @@
 			<div class="front-side__bottom">
 				<input-custom
 					:selector="'front-side__date'"
+                    :rules="'required|length:2'"
 					:placeholder="'Месяц'"
-					:name="'month'">
+					:name="'month'"
+                    :mask="'###'">
 				</input-custom>
 				
 				<div class="front-side__divider">
@@ -49,8 +53,10 @@
 				
 				<input-custom
 					:selector="'front-side__date'"
+                    :rules="'required|between:1990,2020'"
 					:placeholder="'Год'"
-					:name="'year'">
+					:name="'year'"
+                    :mask="'####'">
 				</input-custom>
 				
 				<div class="front-side__bank">
@@ -62,8 +68,10 @@
 		<div class="payment-card__back back-side">
 			<input-custom
 				:selector="'back-side__input'"
+                :rules="'required|length:3'"
 				:placeholder="'CVC'"
 				:name="'cvc'"
+                :mask="'###'"
 				:type="'password'">
 			</input-custom>
 			
@@ -133,6 +141,8 @@
                 this.showMySaved = false;
                 this.$store.dispatch('paySystem', card.system);
                 this.$store.dispatch('card_number', card.number);
+                this.$store.dispatch('month', card.month);
+                this.$store.dispatch('year', card.year);
             },
             deleteCard(index) {
                 this.$store.dispatch('deleteCard', index);

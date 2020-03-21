@@ -62,6 +62,12 @@
             cardNumber() {
                 return this.$store.getters.card_number
             },
+            cardYear() {
+                return this.$store.getters.year
+            },
+            cardMonth() {
+                return this.$store.getters.month
+            },
             paySystem() {
                 return this.$store.getters.pay_system
             },
@@ -72,8 +78,10 @@
 
                 if(this.sendSuccess && this.saveCard) {
                     this.$store.dispatch('pushCard', {
-                        number: this.cardNumber,
+                        number: this.cardNumber.split(' ').join(''),
                         system: this.paySystem,
+                        year: this.cardYear,
+                        month: this.cardMonth,
                     });
                 }
 
