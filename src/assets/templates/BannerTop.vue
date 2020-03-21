@@ -14,10 +14,10 @@
 			<icon :name="'visa'"></icon>
 		</div>
 		<div class="banner-top__right">
-			<svg v-svg symbol="maestro" class="svg"></svg>
+            <icon :name="'maestro'"></icon>
 		</div>
 		<div class="banner-top__right">
-			<svg v-svg symbol="mastercard" class="svg"></svg>
+            <icon :name="'mc'"></icon>
 		</div>
 	</div>
 </template>
