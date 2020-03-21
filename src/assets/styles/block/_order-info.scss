@@ -1,0 +1,22 @@
+.order-info {
+  display: flex;
+
+  &__column {
+    flex: 0 0 auto;
+  }
+  &__row {
+    @extend .bold-16;
+
+    &:not(:first-child) {
+      margin: 15px 0 0 0;
+    }
+  }
+  &__item {
+    display: inline-block;
+
+    &--grey {
+      font-weight: normal;
+      color: $grey;
+    }
+  }
+}

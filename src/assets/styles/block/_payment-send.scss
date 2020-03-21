@@ -1,0 +1,29 @@
+.payment-send {
+  &__status {
+    @include size(80px);
+    margin: 0 auto;
+  }
+  &__title {
+    margin: 30px 0 0 0;
+    text-align: center;
+    @extend .h1;
+  }
+  &__text {
+    margin: 16px;
+    text-align: center;
+    color: $grey;
+    @extend .normal-18;
+  }
+  &__btn {
+    @include size(224px, 62px);
+    margin: 24px auto 0 auto;
+  }
+  &__hr {
+    margin: 30px 0 0 0;
+    @include size(100%, 1px);
+    background: $light-grey;
+  }
+  &__info, &__print {
+    margin: 30px 0 0 0;
+  }
+}

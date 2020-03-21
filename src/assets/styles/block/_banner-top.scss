@@ -1,0 +1,16 @@
+.banner-top {
+  display: flex;
+  align-items: flex-end;
+
+  &__left {
+    height: 60px;
+    flex: 0 0 93px;
+  }
+  &__right {
+    margin: 0 0 0 14px;
+    display: flex;
+    align-items: center;
+    height: 38px;
+    flex: 0 0 50px;
+  }
+}

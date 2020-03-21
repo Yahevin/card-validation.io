@@ -1,0 +1,12 @@
+.container {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 848px;
+  height: auto;
+  box-sizing: border-box;
+  color: $black;
+
+  & div, & span, & p, & section, & article, & form, & input, & a, & button, & label {
+    box-sizing: border-box;
+  }
+}

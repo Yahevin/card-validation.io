@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 const isDevelopment = process.env.NODE_ENV ==='development';
 
@@ -15,6 +16,7 @@ const plugins =  [
   new VueLoaderPlugin(),
   new HtmlWebpackPlugin({template: './src/assets/index.html'}),
   new ExtractTextPlugin('style.css'),
+  new SpriteLoaderPlugin(),
 ];
 
 if(isDevelopment) {
@@ -63,7 +65,7 @@ let config = {
         }),
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        test: /\.(eot|ttf|woff|woff2)$/,
         use: [{
           loader: 'file-loader',
           options: {
@@ -71,6 +73,17 @@ let config = {
             outputPath: 'fonts'
           },
         }],
+      },
+      {
+        test: /\.(svg)$/,
+	      include: path.resolve(__dirname, 'src/assets/img/icons'),
+	      use: [{
+		      loader: 'svg-sprite-loader',
+		      options: {
+			      extract: true,
+			      spriteFilename: 'svg/sprite.svg',
+		      },
+	      }],
       },
       {
         test: /\.(jpg|png)$/,

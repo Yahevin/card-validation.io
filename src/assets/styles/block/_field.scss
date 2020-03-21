@@ -1,0 +1,65 @@
+.field {
+  height: 60px;
+  padding: 18px 35px 0 16px;
+  position: relative;
+
+  &:hover {
+    & .field__input--filled {
+      & + .field__label + .field__clear {
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__input {
+    @extend .normal-16;
+    width: 100%;
+    letter-spacing: 0.15px;
+    position: relative;
+    z-index: 2;
+
+    &::placeholder {
+      color: $grey;
+    }
+    &:focus, &--filled {
+      margin: 9px 0 0 0;
+
+      &::placeholder {
+        color: transparent;
+      }
+      & + .field__label  {
+        color: $grey;
+      }
+    }
+  }
+
+  &__label {
+    @include size(100%);
+    @extend .normal-12;
+    padding: 10px 16px;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    color: #fff;
+    cursor: text;
+    letter-spacing: 0.4px;
+    border: 1px solid $light-grey;
+    border-radius: 6px;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &__clear {
+    @include size(16px);
+    position: absolute;
+    z-index: 3;
+    right: 16px;
+    top: 22px;
+    color: $grey;
+    cursor: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+}

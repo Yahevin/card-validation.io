@@ -1,0 +1,18 @@
+.about-column {
+  &__accept {
+    margin: 324px 0 0 0;
+    display: grid;
+    grid-template-rows: 54px 54px;
+    grid-template-columns: 80px 80px;
+    grid-gap: 10px;
+  }
+  &__text {
+    margin: 16px 0 0 0;
+    @extend .normal-12;
+    color: $grey;
+  }
+  &__link {
+    display: inline;
+    color: $salad;
+  }
+}

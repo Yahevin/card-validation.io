@@ -1,0 +1,65 @@
+.front-side {
+  padding: 32px 24px;
+  margin: -1px 0 -1px -1px;
+  border-radius: 12px;
+  border: 1px solid $light-grey;
+  background-color: #F3F5F7;
+  transition: all 0.3s ease-out;
+
+  &__number, &__date {
+    width: 100%;
+  }
+
+  &__bottom {
+    margin: 40px 0 0 0;
+    display: grid;
+    grid-template-rows: 62px;
+    grid-template-columns: 106px 8px 106px 1fr;
+    grid-gap: 0 8px;
+  }
+
+  &__divider {
+    @extend .normal-16;
+    letter-spacing: 0.15px;
+    line-height: 62px;
+    color: $grey;
+    transition: color 0.2s ease;
+  }
+
+  &__bank {
+    padding: 0 0 0 8px;
+  }
+
+  &--sber {
+    background-color: #2F9A41;
+    border-color: #2F9A41;
+  }
+  &--tink {
+    background-color: $black;
+    border-color: $black;
+  }
+  &--alpha {
+    background-color: #EF3124;
+    border-color: #EF3124;
+  }
+  &--open {
+    background-color: #00B2E1;
+    border-color: #00B2E1;
+  }
+
+  &--sber, &--tink, &--alpha, &--open {
+    .front-side__divider {
+      color: #fff;
+    }
+    .front-side__number {
+      & .field__clear {
+        right: 65px;
+      }
+    }
+  }
+  &__number {
+    & .field__clear {
+      z-index: 11;
+    }
+  }
+}

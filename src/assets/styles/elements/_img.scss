@@ -1,0 +1,12 @@
+.img {
+  @include size(100%);
+  display: block;
+  object-position: center;
+
+  &--cover {
+    object-fit: cover;
+  }
+  &--contain {
+    object-fit: contain;
+  }
+}
