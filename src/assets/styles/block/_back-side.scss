@@ -22,7 +22,8 @@
     @include size(190px, 71px);
     padding: 12px;
     position: absolute;
-    top: -86px;
+    z-index: 20;
+    top: -80px;
     left: -66px;
     opacity: 0;
     transition: opacity 0.2s ease;
@@ -30,5 +31,16 @@
     border-radius: 13px;
     color: $light-grey;
     pointer-events: none;
+    &::after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      position: absolute;
+      bottom: -5px;
+      left: calc(50% - 7px);
+      border-radius: 3px;
+      background: $popup-grey;
+      transform: rotate(45deg);
+    }
   }
 }

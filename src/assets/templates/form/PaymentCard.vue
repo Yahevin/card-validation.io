@@ -53,7 +53,7 @@
 				
 				<input-custom
 					:selector="'front-side__date'"
-                    :rules="'required|between:1990,2020'"
+                    :rules="'required|min_value:2020'"
 					:placeholder="'Год'"
 					:name="'year'"
                     :mask="'####'">
