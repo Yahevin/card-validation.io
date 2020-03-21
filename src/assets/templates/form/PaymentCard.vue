@@ -64,6 +64,7 @@
 			}
 		},
 		computed: {
+
 			bankLogo() {
 				return '@/assets/img/' + this.bank + '.png';
 			}

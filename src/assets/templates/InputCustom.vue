@@ -19,6 +19,8 @@
 </template>
 
 <script>
+    import {store} from '@/assets/js/store/index';
+
 	export default {
 		name: "InputCustom",
         props: {
@@ -42,16 +44,23 @@
         mounted() {
         },
         data() {
-          return {
-            input: '',
-          }
+		    return {}
         },
+        store,
         computed: {
-		      inputId() {
-            return this.name + '-id';
+          input: {
+              get() {
+                  return this.$store.getters[this.name];
+              },
+              set(val) {
+                  this.$store.dispatch(this.name, val);
+              }
+          },
+          inputId() {
+              return this.name + '-id';
           },
           filled() {
-		        return this.input.length > 0 ? 'field__input--filled' : '';
+              return this.input.length > 0 ? 'field__input--filled' : '';
           }
         }
 	}

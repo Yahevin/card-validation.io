@@ -19,22 +19,26 @@
 			</p>
 		</div>
 		
-		<div @click="retrySend"
-				class="payment-send__btn btn-submit">
+		<div class="payment-send__btn btn-submit"
+             @click="retrySend">
 			<span class="btn-submit__text">Повторить</span>
 		</div>
 	</section>
 </template>
 
 <script>
+    import {store} from '@/assets/js/store/index';
+
 	export default {
 		name: "PaymentError",
 		props: ['form'],
+        store,
+        computed: {
+        },
 		methods: {
 			retrySend() {
-				console.log(this);
-				this.form.submit();
-			}
+                this.$store.dispatch('setAction', true);
+			},
 		}
 	}
 </script>

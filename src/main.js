@@ -3,11 +3,12 @@ import '@/assets/styles/main.scss';
 
 //Libraries
 import Vue from "vue";
+import VueBus from 'vue-bus';
 import SvgSprite from 'vue-svg-sprite';
 Vue.use(SvgSprite,{
   url: '/svg/sprite.svg',
 });
-
+Vue.use(VueBus);
 
 //Templates
 import Main from "@/assets/templates/Main.vue";

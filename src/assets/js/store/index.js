@@ -5,39 +5,60 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    card_number: null,
     card_save: false,
-    month: null,
-    year: null,
-    cvc: null,
-    email: null,
+    card_number: '',
+    month: '',
+    year: '',
+    cvc: '',
+    email: '',
     form_filling: true,
+    processed: false,
   },
   actions: {
+    cleanInputs({commit}) {
+      commit('CLEAN_INPUTS')
+    },
+    processed({commit}, value) {
+      commit('PROCESSED', value)
+    },
+    globalForm({commit}, value) {
+      commit('GLOBAL_FORM', value)
+    },
     setAction({commit}, value) {
       commit('SET_ACTION', value)
     },
-    cardNumber({commit}, value) {
+    card_number({commit}, value) {
       commit('CARD_NUMBER', value)
     },
-    cardSave({commit}, value) {
+    save({commit}, value) {
       commit('CARD_SAVE', value)
     },
-    setMonth({commit}, value) {
+    month({commit}, value) {
       commit('SET_MONTH', value)
     },
-    setYear({commit}, value) {
+    year({commit}, value) {
       commit('SET_YEAR', value)
     },
-    setCVC({commit}, value) {
+    cvc({commit}, value) {
       commit('SET_CVC', value)
     },
-    setEmail({commit}, value) {
+    email({commit}, value) {
       commit('SET_EMAIL', value)
     },
     
   },
   mutations: {
+    CLEAN_INPUTS(state) {
+      state.card_number ='';
+      state.month ='';
+      state.year ='';
+      state.cvc ='';
+      state.email ='';
+      state.card_save = false;
+    },
+    PROCESSED(state, value) {
+      state.processed = value;
+    },
     SET_ACTION(state, value) {
       state.form_filling = value;
     },
@@ -61,6 +82,9 @@ export const store = new Vuex.Store({
     },
   },
   getters: {
+    processed(state) {
+      return state.processed
+    },
     form_filling(state) {
       return state.form_filling
     },

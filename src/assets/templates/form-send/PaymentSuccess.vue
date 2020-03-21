@@ -56,7 +56,8 @@
 		store,
 		methods: {
 			returnToForm() {
-				this.$store.dispatch('setAction', true);
+                this.$store.dispatch('setAction', true);
+                this.$store.dispatch('cleanInputs');
 			},
 		}
 	}

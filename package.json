@@ -52,6 +52,7 @@
     "svg-sprite-loader": "^4.2.1",
     "url-loader": "^2.2.0",
     "vue": "^2.6.10",
+    "vue-bus": "^1.2.1",
     "vue-loader": "^15.7.2",
     "vue-svg-sprite": "^1.4.1",
     "vue-template-compiler": "^2.6.10",

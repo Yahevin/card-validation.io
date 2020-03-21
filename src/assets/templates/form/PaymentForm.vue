@@ -1,5 +1,5 @@
 <template>
-	<form class="payment" ref="form" @submit="formSubmit">
+	<form class="payment" ref="form" @submit.prevent="formSubmit">
 		<order-info></order-info>
 		
 		<payment-card></payment-card>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+    import {store} from '@/assets/js/store/index';
 	import CardSave from '@/assets/templates/form/CardSave';
 	import OrderInfo from '@/assets/templates/form/OrderInfo';
 	import PaymentCard from '@/assets/templates/form/PaymentCard';
@@ -29,10 +30,17 @@
 			OtherPayment,
 			PaymentCard,
 		},
+        store,
+        mounted() {
+        },
 		methods: {
-			formSubmit(e){
-				e.preventDefault();
-				this.$emit('submit');
+			formSubmit(){
+                this.$store.dispatch('processed', true);
+
+                setTimeout(()=>{
+                    this.$store.dispatch('processed', false);
+                    this.$emit('submit');
+                },1000);
 			}
 		}
 	}
