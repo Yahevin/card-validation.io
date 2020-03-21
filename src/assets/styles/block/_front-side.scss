@@ -4,7 +4,7 @@
   border-radius: 12px;
   border: 1px solid $light-grey;
   background-color: #F3F5F7;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-out;
 
   &__number, &__date {
     width: 100%;
@@ -28,5 +28,28 @@
 
   &__bank {
     padding: 0 0 0 8px;
+  }
+
+  &--sber {
+    background-color: #2F9A41;
+    border-color: #2F9A41;
+  }
+  &--tink {
+    background-color: $black;
+    border-color: $black;
+  }
+  &--alpha {
+    background-color: #EF3124;
+    border-color: #EF3124;
+  }
+  &--open {
+    background-color: #00B2E1;
+    border-color: #00B2E1;
+  }
+
+  &--sber, &--tink, &--alpha, &--open {
+    .front-side__divider {
+      color: #fff;
+    }
   }
 }

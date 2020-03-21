@@ -53,19 +53,31 @@
             }
         },
         computed: {
-            
+            saveCard() {
+                return this.$store.getters.remember_card
+            },
             formFilling() {
-                return this.$store.getters.form_filling;
-            }
+                return this.$store.getters.form_filling
+            },
+            cardNumber() {
+                return this.$store.getters.card_number
+            },
+            paySystem() {
+                return this.$store.getters.pay_system
+            },
         },
         methods: {
             formSubmited() {
-                this.random();
+                this.sendSuccess = Math.random() > 0.5;
+
+                if(this.sendSuccess && this.saveCard) {
+                    this.$store.dispatch('pushCard', {
+                        number: this.cardNumber,
+                        system: this.paySystem,
+                    });
+                }
 
                 this.$store.dispatch('setAction', false);
-            },
-            random() {
-                this.sendSuccess = Math.random() > 0.5;
             },
         },
     }

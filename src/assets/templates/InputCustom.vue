@@ -1,6 +1,7 @@
 <template>
 	<div class="field" :class="selector">
         <input class="field__input"
+               autocomplete="off"
                v-model="input"
                :placeholder="placeholder"
                :class="filled"
@@ -44,13 +45,18 @@
         mounted() {
         },
         data() {
-		    return {}
+		    return {
+                filledLength: null,
+            }
         },
         store,
         computed: {
           input: {
               get() {
-                  return this.$store.getters[this.name];
+                  let newVal = this.$store.getters[this.name];
+
+                  this.filledLength = newVal.toString().length;
+                  return newVal;
               },
               set(val) {
                   this.$store.dispatch(this.name, val);
@@ -60,7 +66,7 @@
               return this.name + '-id';
           },
           filled() {
-              return this.input.length > 0 ? 'field__input--filled' : '';
+              return this.filledLength > 0 ? 'field__input--filled' : '';
           }
         }
 	}

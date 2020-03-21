@@ -6,10 +6,20 @@
   border: 1px solid $light-grey;
   background-color: #fff;
 
+  &:hover {
+    & .field__input--filled {
+      & + .field__label + .field__clear {
+        opacity: 1;
+      }
+    }
+  }
+
   &__input {
     @extend .normal-16;
     width: 100%;
     letter-spacing: 0.15px;
+    position: relative;
+    z-index: 1;
 
     &::placeholder {
       color: $grey;
@@ -24,9 +34,9 @@
         opacity: 1;
       }
     }
-    &--filled {
-      & + .field__label + .field__clear {
-        opacity: 1;
+    &:focus, &:hover {
+      & + .field__label {
+        z-index: 0;
       }
     }
   }
@@ -36,6 +46,7 @@
     @extend .normal-12;
     padding: 10px 16px;
     position: absolute;
+    z-index: 2;
     left: 0;
     top: 0;
     opacity: 0;
@@ -47,6 +58,7 @@
   &__clear {
     @include size(16px);
     position: absolute;
+    z-index: 2;
     right: 16px;
     top: 22px;
     color: $grey;

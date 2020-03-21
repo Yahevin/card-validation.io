@@ -1,9 +1,10 @@
 <template>
 	<div class="payment__save card-save">
 		<div class="card-save__wrap">
-			<input type="checkbox"
+			<input class="card-save__input"
+                   type="checkbox"
 			       id="card-save"
-			       class="card-save__input">
+                   v-model="cardSave">
 			<label class="card-save__label" for="card-save">
 				<svg v-svg symbol="checked" class="svg card-save__arrow"></svg>
 			</label>
@@ -15,8 +16,21 @@
 </template>
 
 <script>
+    import {store} from '@/assets/js/store/index';
+
 	export default {
-		name: "CardSave"
+		name: "CardSave",
+        store,
+        computed: {
+            cardSave: {
+                get() {
+                    return this.$store.getters.remember_card;
+                },
+                set(val) {
+                    this.$store.dispatch('rememberCard', val);
+                }
+            }
+        }
 	}
 </script>
 

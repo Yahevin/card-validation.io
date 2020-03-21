@@ -5,7 +5,6 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    card_save: false,
     card_number: '',
     month: '',
     year: '',
@@ -13,8 +12,28 @@ export const store = new Vuex.Store({
     email: '',
     form_filling: true,
     processed: false,
+    pay_system: '',
+    saved_cards: [
+      {
+        number: 1234567890123456789,
+        system: 'mir',
+      }
+    ],
+    remember_card: false,
   },
   actions: {
+    paySystem({commit}, value) {
+      commit('PAY_SYSTEM', value)
+    },
+    deleteCard({commit}, index) {
+      commit('DELETE_CARD', index)
+    },
+    pushCard({commit}, value) {
+      commit('PUSH_CARD', value)
+    },
+    rememberCard({commit}, value) {
+      commit('REMEMBER_CARD', value)
+    },
     cleanInputs({commit}) {
       commit('CLEAN_INPUTS')
     },
@@ -29,9 +48,6 @@ export const store = new Vuex.Store({
     },
     card_number({commit}, value) {
       commit('CARD_NUMBER', value)
-    },
-    save({commit}, value) {
-      commit('CARD_SAVE', value)
     },
     month({commit}, value) {
       commit('SET_MONTH', value)
@@ -48,6 +64,18 @@ export const store = new Vuex.Store({
     
   },
   mutations: {
+    PAY_SYSTEM(state, value) {
+      state.pay_system = value;
+    },
+    DELETE_CARD(state, index) {
+      state.saved_cards.splice(index,1);
+    },
+    PUSH_CARD(state, value) {
+      state.saved_cards.push(value);
+    },
+    REMEMBER_CARD(state, value) {
+      state.remember_card = value;
+    },
     CLEAN_INPUTS(state) {
       state.card_number ='';
       state.month ='';
@@ -65,9 +93,6 @@ export const store = new Vuex.Store({
     CARD_NUMBER(state, value) {
       state.card_number = value;
     },
-    CARD_SAVE(state, value) {
-      state.card_save = value;
-    },
     SET_MONTH(state, value) {
       state.month = value;
     },
@@ -80,8 +105,20 @@ export const store = new Vuex.Store({
     SET_EMAIL(state, value) {
       state.email = value;
     },
+    CARD_SAVE(state, value) {
+      state.email = value;
+    },
   },
   getters: {
+    saved_cards(state) {
+      return state.saved_cards
+    },
+    remember_card(state) {
+      return state.remember_card
+    },
+    pay_system(state) {
+      return state.pay_system
+    },
     processed(state) {
       return state.processed
     },
@@ -90,9 +127,6 @@ export const store = new Vuex.Store({
     },
     card_number(state) {
       return state.card_number
-    },
-    card_save(state) {
-      return state.card_save
     },
     month(state) {
       return state.month
