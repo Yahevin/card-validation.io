@@ -26,11 +26,11 @@
 			<div class="pay-cheque__position">Сумма</div>
 			<div class="pay-cheque__position">Банковская карта</div>
 			<div class="pay-cheque__position">Код авторизации</div>
-			<div class="pay-cheque__data">01.12.2019 11:13:37</div>
+			<div class="pay-cheque__data">{{ date }}</div>
 			<div class="pay-cheque__data">МКУ «Организатор городского парковочного пространства» parkingkzn.ru</div>
 			<div class="pay-cheque__data">474426</div>
 			<div class="pay-cheque__data">404.00 RUB</div>
-			<div class="pay-cheque__data">434412******1044</div>
+			<div class="pay-cheque__data">{{ covered(cardNumber) }}</div>
 			<div class="pay-cheque__data">200.00 RUB</div>
 		</div>
 		
@@ -54,11 +54,45 @@
 	export default {
 		name: "PaymentSuccess",
 		store,
+        data() {
+            return {
+                date: null,
+            }
+        },
+        mounted() {
+            this.setPaymentDate();
+        },
+        computed: {
+            cardNumber() {
+                return this.$store.getters.card_number;
+            },
+        },
 		methods: {
 			returnToForm() {
                 this.$store.dispatch('setAction', true);
                 this.$store.dispatch('cleanInputs');
 			},
+            covered(val) {
+                let value = val.toString();
+                return value.slice(0,4) + ' ' + value.slice(4,6) + '** **** ' + value.slice(12,17);
+            },
+            setPaymentDate() {
+			    let stamp = new Date();
+
+			    this.date = this.formate(stamp.getDate()) + '.'
+                    + this.formate(stamp.getMonth()) + '.'
+                    + stamp.getFullYear() + ' '
+                    + this.formate(stamp.getHours()) + ':'
+                    + this.formate(stamp.getMinutes()) + ':'
+                    + this.formate(stamp.getSeconds());
+            },
+            formate(val) {
+                if(val.toString().length === 1) {
+                    return '0' + val;
+                } else {
+                    return val;
+                }
+            },
 		}
 	}
 </script>
