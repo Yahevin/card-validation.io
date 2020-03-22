@@ -48,7 +48,7 @@
     border: 1px solid $light-grey;
     border-radius: 6px;
     background-color: #fff;
-    transition: all 0.2s ease-in-out;
+    transition: border-color 0.2s ease-in-out;
   }
 
   &__clear {

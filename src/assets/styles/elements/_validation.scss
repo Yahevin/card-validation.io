@@ -12,3 +12,9 @@
     }
   }
 }
+
+.not-valid {
+  & .field__label {
+    border-color: $red;
+  }
+}

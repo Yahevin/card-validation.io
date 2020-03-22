@@ -50,7 +50,23 @@
             return {
                 start: true,
                 sendSuccess: false,
+                currentYear: null,
+                currentMonth: null,
             }
+        },
+        mounted() {
+            let date = new Date();
+
+            this.currentYear = date.getFullYear();
+            this.currentMonth = date.getMonth();
+        },
+        watch: {
+            cardMonth: function () {
+                this.checkExpire()
+            },
+            cardYear: function () {
+                this.checkExpire()
+            },
         },
         computed: {
             saveCard() {
@@ -71,9 +87,16 @@
             paySystem() {
                 return this.$store.getters.pay_system
             },
+            cardExpired() {
+                return this.$store.getters.card_expired
+            }
         },
         methods: {
             formSubmited() {
+                if(this.cardExpired) {
+                    return;
+                }
+
                 this.sendSuccess = Math.random() > 0.5;
 
                 if(this.sendSuccess && this.saveCard) {
@@ -87,6 +110,14 @@
 
                 this.$store.dispatch('setAction', false);
             },
+            checkExpire() {
+                if (parseInt(this.cardYear) === this.currentYear
+                    && parseInt(this.cardMonth) <= this.currentMonth) {
+                    this.$store.dispatch('cardExpired', true);
+                } else {
+                    this.$store.dispatch('cardExpired', false);
+                }
+            }
         },
     }
 </script>
