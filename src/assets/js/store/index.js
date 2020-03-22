@@ -15,6 +15,7 @@ export const store = new Vuex.Store({
     pay_system: '',
     saved_cards: [],
     remember_card: false,
+    card_expired: false,
   },
   actions: {
     paySystem({commit}, value) {
@@ -55,6 +56,9 @@ export const store = new Vuex.Store({
     },
     email({commit}, value) {
       commit('SET_EMAIL', value)
+    },
+    cardExpired({commit}, value) {
+      commit('CARD_EXPIRED', value)
     },
     
   },
@@ -103,6 +107,9 @@ export const store = new Vuex.Store({
     CARD_SAVE(state, value) {
       state.email = value;
     },
+    CARD_EXPIRED(state, value) {
+      state.card_expired= value;
+    },
   },
   getters: {
     saved_cards(state) {
@@ -134,6 +141,9 @@ export const store = new Vuex.Store({
     },
     email(state) {
       return state.email
+    },
+    card_expired(state) {
+      return state.card_expired
     },
   },
   modules: {}

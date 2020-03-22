@@ -39,13 +39,16 @@
             </div>
 
 			<div class="front-side__bottom">
-				<input-custom
-					:selector="'front-side__date'"
-                    :rules="'required|length:2'"
-					:placeholder="'Месяц'"
-					:name="'month'"
-                    :mask="'###'">
-				</input-custom>
+                <div class="front-side__date"
+                    :class="{'not-valid': cardExpired}">
+                    <input-custom
+                        :rules="'required|length:2'"
+                        :placeholder="'Месяц'"
+                        :name="'month'"
+                        :mask="'###'">
+                    </input-custom>
+                </div>
+
 				
 				<div class="front-side__divider">
 					&sol;
@@ -130,6 +133,9 @@
             },
             frontModificator() {
                 return 'front-side--' + this.bank
+            },
+            cardExpired() {
+                return this.$store.getters.card_expired
             }
 		},
         methods: {
