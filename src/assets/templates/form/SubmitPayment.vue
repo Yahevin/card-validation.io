@@ -7,6 +7,7 @@
 			<input-custom
 				:selector="'btn-wrap__mail'"
 				:placeholder="'Email'"
+				:mask="'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX'"
 				:name="'email'">
 			</input-custom>
 			<button class="btn-wrap__submit btn-submit"
