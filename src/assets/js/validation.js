@@ -26,9 +26,16 @@ extend('expire', {
 extend('card', {
   params: ['min','max'],
   validate(value, {min,max}) {
-    const val = parseInt(value);
+    const val = value.split(' ').join('').length;
+    const minVal = parseInt(min);
+    const maxVal = parseInt(max);
 
-    return val >= min && val <= max;
+
+    console.log(val,'val')
+    console.log(minVal,'minVal')
+    console.log(maxVal,'maxVal')
+
+    return val >= minVal && val <= maxVal;
   },
   message: 'Номер карты должен быть меньше {min} и больше {max} символов',
 });
