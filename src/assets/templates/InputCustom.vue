@@ -113,11 +113,19 @@
                         return;
                     }
                     if (value > 12) {
-                        this.input = '0' + val.slice (-1);
-                        return;
+                        const last = val.slice (-1);
+                        if(last !== '0') {
+                            this.input = '0' + val.slice (-1);
+                            return;
+                        } else  {
+                            this.input = '0';
+                            return;
+                        }
                     }
                     if (val.slice (0, 2) === '01' && val.length === 3) {
                         this.input = val.slice (1, 3);
+                    } else if(value === 0) {
+                        this.input = 0;
                     } else {
                         this.input = val.slice (0, 2);
                     }
