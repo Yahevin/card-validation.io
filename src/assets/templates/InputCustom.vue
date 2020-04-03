@@ -1,10 +1,12 @@
 <template>
     <ValidationProvider
-            :rules="rules"
             style="display: block"
+            :name="fieldName"
+            :rules="rules"
             :class="selector"
+            :vid="vid"
             v-slot="{ classes }">
-	    <div class="field"  >
+	    <div class="field">
             <input class="field__input"
                    autocomplete="off"
                    v-model="input"
@@ -31,19 +33,6 @@
 <script>
     import {store} from '@/assets/js/store/index';
     import { ValidationProvider } from 'vee-validate';
-
-    import { extend } from 'vee-validate';
-
-
-    extend('required', {
-        validate (value) {
-            return {
-                required: true,
-                valid: ['', null, undefined].indexOf(value) === -1
-            };
-        },
-        computesRequired: true
-    });
 
 	export default {
 		name: "InputCustom",
@@ -75,6 +64,10 @@
                 type: String,
                 default: '',
             },
+            vid: {
+                type: String,
+                default: null,
+            },
         },
         mounted() {
         },
@@ -86,6 +79,9 @@
         },
         store,
         computed: {
+		  fieldName() {
+		      return this.placeholder.toLowerCase();
+          },
           input: {
               get() {
                   let newVal = this.$store.getters[this.name];

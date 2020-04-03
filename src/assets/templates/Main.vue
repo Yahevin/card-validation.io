@@ -54,19 +54,7 @@
                 currentMonth: null,
             }
         },
-        mounted() {
-            let date = new Date();
-
-            this.currentYear = date.getFullYear();
-            this.currentMonth = date.getMonth();
-        },
         watch: {
-            cardMonth: function () {
-                this.checkExpire()
-            },
-            cardYear: function () {
-                this.checkExpire()
-            },
         },
         computed: {
             saveCard() {
@@ -110,14 +98,6 @@
 
                 this.$store.dispatch('setAction', false);
             },
-            checkExpire() {
-                if (parseInt(this.cardYear) === this.currentYear
-                    && parseInt(this.cardMonth) <= this.currentMonth) {
-                    this.$store.dispatch('cardExpired', true);
-                } else {
-                    this.$store.dispatch('cardExpired', false);
-                }
-            }
         },
     }
 </script>

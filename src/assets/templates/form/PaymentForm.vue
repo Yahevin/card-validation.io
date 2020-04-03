@@ -1,11 +1,17 @@
 <template>
-    <ValidationObserver v-slot="{ handleSubmit, reset }">
+    <ValidationObserver v-slot="{ handleSubmit, reset, errors }">
         <form class="payment" ref="form"
               @reset.prevent="reset"
               @submit.prevent="handleSubmit(formSubmit)">
             <order-info></order-info>
 
             <payment-card></payment-card>
+
+            <transition name="fade" v-for="error in errors">
+                <div class="error" v-show="notEmpty(error)">
+                    {{ error[0] }}
+                </div>
+            </transition>
 
             <card-save></card-save>
 
@@ -54,7 +60,10 @@
                     this.$store.dispatch('processed', false);
                     this.$emit('submit');
                 },1000);
-			}
+			},
+            notEmpty(error) {
+		        return error.length > 0;
+            }
 		}
 	}
 </script>

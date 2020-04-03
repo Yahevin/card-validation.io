@@ -6,7 +6,7 @@
                 <div class="card-number__input"
                     @click="showMySaved=true">
                     <input-custom
-                        :rules="'required|min:19|max:24'"
+                        :rules="'required|between:19,24|luna'"
                         :placeholder="'Номер карты'"
                         :name="'card_number'"
                         :mask="'#### #### #### #### ####'">
@@ -42,7 +42,7 @@
                 <div class="front-side__date"
                     :class="{'not-valid': cardExpired}">
                     <input-custom
-                        :rules="'required|length:2'"
+                        :rules="'required|expire:@year'"
                         :placeholder="'Месяц'"
                         :name="'month'"
                         :mask="'###'">
@@ -56,10 +56,11 @@
 				
 				<input-custom
 					:selector="'front-side__date'"
-                    :rules="'required|min_value:2020'"
+                    :rules="'required|min_value:20'"
 					:placeholder="'Год'"
 					:name="'year'"
-                    :mask="'####'">
+                    :vid="'year'"
+                    :mask="'##'">
 				</input-custom>
 				
 				<div class="front-side__bank">
