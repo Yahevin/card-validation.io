@@ -6,7 +6,6 @@ const messages = {
   required: 'Введите {_field_}',
   min_value: 'Карта просрочена',
   min: 'Длина поля "год" 2 символа',
-  between: 'Номер карты некорректен',
   length: 'Введите 3 символа в поле CVC'
 };
 
@@ -22,6 +21,16 @@ extend('expire', {
     return year !== currentYear || year === currentYear && parseInt(value) >= currentMonth
   },
   message: 'Карта просрочена',
+});
+
+extend('card', {
+  params: ['min','max'],
+  validate(value, {min,max}) {
+    const val = parseInt(value);
+
+    return val >= min && val <= max;
+  },
+  message: 'Номер карты должен быть меньше {min} и больше {max} символов',
 });
 
 extend('luna',{
@@ -44,6 +53,7 @@ extend('luna',{
       }
     }
     let summ = arr.reduce(function(a, b) { return a + b; });
+    console.log(summ)
     return Boolean(!(summ % 10));
   },
 

@@ -1,5 +1,5 @@
 <template>
-    <ValidationObserver v-slot="{ handleSubmit, reset, errors }">
+    <ValidationObserver v-slot="{ handleSubmit, reset, errors, fields }">
         <form class="payment" ref="form"
               @reset.prevent="reset"
               @submit.prevent="handleSubmit(formSubmit)">
@@ -7,9 +7,9 @@
 
             <payment-card></payment-card>
 
-            <transition name="fade" v-for="error in errors">
-                <div class="error" v-show="notEmpty(error)">
-                    {{ error[0] }}
+            <transition name="fade" v-for="error in Errors(errors, fields)">
+                <div class="error" >
+                    {{ error }}
                 </div>
             </transition>
 
@@ -61,8 +61,15 @@
                     this.$emit('submit');
                 },1000);
 			},
-            notEmpty(error) {
-		        return error.length > 0;
+            Errors(errors, fields) {
+		        let sum = [];
+
+		        for (let error in errors) {
+		            if(errors[error].length > 0 && fields[error].touched) {
+                        sum.push(errors[error][0]);
+                    }
+                }
+		        return sum;
             }
 		}
 	}

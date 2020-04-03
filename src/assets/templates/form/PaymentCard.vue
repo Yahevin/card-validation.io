@@ -6,7 +6,7 @@
                 <div class="card-number__input"
                     @click="showMySaved=true">
                     <input-custom
-                        :rules="'required|between:19,24|luna'"
+                        :rules="'required|card:19,24|luna'"
                         :placeholder="'Номер карты'"
                         :name="'card_number'"
                         :mask="'#### #### #### #### ####'">
